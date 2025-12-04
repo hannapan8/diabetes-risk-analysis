@@ -1,0 +1,5 @@
+Diabetes_012,Smoker,PhysActivity,Fruits,Veggies,HvyAlcoholConsump,Income,Education,AnyHealthcare,Sex,Age,BMI
+0,0,1,1,1,0,1,2,1,0,2,22.5
+2,1,0,0,0,1,4,4,1,1,7,32.1
+2,1,1,1,1,0,7,6,1,1,10,35.0
+1,0,0,1,0,0,6,5,0,0,5,28.7
