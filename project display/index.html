@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Diabetes Risk Analysis · Data Visualization Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Segoe UI", sans-serif;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #020617;
+        color: #e5e7eb;
+      }
+      a {
+        color: #93c5fd;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+      .hero {
+        margin-bottom: 28px;
+      }
+      .hero h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.9rem, 3vw, 2.4rem);
+      }
+      .hero p {
+        margin: 0 0 14px;
+        max-width: 720px;
+        color: #cbd5f5;
+        font-size: 0.95rem;
+      }
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .pill {
+        border-radius: 999px;
+        border: 1px solid rgba(59, 130, 246, 0.7);
+        padding: 4px 10px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #bfdbfe;
+        background: rgba(15, 23, 42, 0.9);
+      }
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .hero-links a {
+        border-radius: 999px;
+        border: 1px solid rgba(59, 130, 246, 0.7);
+        padding: 7px 14px;
+        font-size: 0.85rem;
+        background: rgba(15, 23, 42, 0.9);
+      }
+      .hero-links a.secondary {
+        border-style: dashed;
+        border-color: rgba(148, 163, 184, 0.8);
+        color: #e5e7eb;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      @media (min-width: 840px) {
+        .grid {
+          grid-template-columns: 2fr 3fr;
+        }
+      }
+      .card {
+        background: radial-gradient(circle at top left, #1f2937, #020617);
+        border-radius: 16px;
+        padding: 16px 18px 18px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+      }
+      .card h2 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+      .card p {
+        margin: 0 0 6px;
+        font-size: 0.9rem;
+      }
+      .card ul {
+        margin: 4px 0 0 18px;
+        padding: 0;
+        font-size: 0.85rem;
+      }
+
+      .gallery-title {
+        margin: 0 0 10px;
+        font-size: 1.05rem;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+      }
+      @media (min-width: 720px) {
+        .gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .figure {
+        background: rgba(15, 23, 42, 0.9);
+        border-radius: 12px;
+        padding: 10px 10px 12px;
+        border: 1px solid rgba(51, 65, 85, 0.9);
+      }
+      .figure img {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .figure figcaption {
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      .footer-card {
+        margin-top: 18px;
+      }
+      .signature {
+        margin-top: 10px;
+        font-size: 0.82rem;
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>Predicting Diabetes Risk from Lifestyle &amp; Demographics</h1>
+        <p>
+          A data visualization and modeling project using the CDC Diabetes Health
+          Indicators dataset (~200k records). This page highlights how I use
+          visual storytelling, Python, and front-end design to explain which
+          factors are most strongly associated with diabetes risk.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Data Storytelling</span>
+          <span class="pill">Python · pandas · sklearn</span>
+          <span class="pill">matplotlib · seaborn</span>
+          <span class="pill">Front-end Visualization</span>
+        </div>
+        <div class="hero-links">
+          <!-- TODO: update these hrefs once on GitHub -->
+          <a href="https://github.com/YOUR_USERNAME/YOUR_REPO_NAME"
+             target="_blank" rel="noreferrer">
+            View Project on GitHub
+          </a>
+          <a href="notebooks/analysis.ipynb" target="_blank" rel="noreferrer"
+             class="secondary">
+            Open Analysis Notebook
+          </a>
+          <a href="report/final_report.pdf" target="_blank" rel="noreferrer"
+             class="secondary">
+            Read Full Report
+          </a>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>What I Explored</h2>
+          <p>
+            The core question: <strong>How do age, BMI, and everyday behaviors
+            combine to shape the likelihood of being diagnosed with diabetes?</strong>
+          </p>
+          <ul>
+            <li>Cleaned and subset a large public health dataset (~200k rows).</li>
+            <li>Visualized distributions and class imbalance for diabetic vs. non-diabetic groups.</li>
+            <li>Analyzed how risk changes across age bands, BMI categories, and income levels.</li>
+            <li>Built logistic regression and random forest models to quantify risk.</li>
+          </ul>
+          <p>
+            The emphasis throughout is on <strong>clear, readable visuals</strong> that
+            each answer a specific question, rather than standalone plots.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>How I Told the Story</h2>
+          <p>
+            I structured the project as a narrative that moves from raw data to an
+            interface-ready summary:
+          </p>
+          <ul>
+            <li>Exploratory charts that reveal who is most at risk.</li>
+            <li>
+              Model-based visualizations (coefficients, feature importances) to show
+              which variables matter most.
+            </li>
+            <li>
+              A lightweight front-end layout that could be turned into a React
+              dashboard to surface key metrics and charts.
+            </li>
+          </ul>
+          <p>
+            This page is a compact view of that pipeline: data → visuals →
+            interpretable insights.
+          </p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2 class="gallery-title">Selected Visualizations</h2>
+        <div class="gallery">
+          <!-- Replace src paths with your actual figure filenames -->
+          <figure class="figure">
+            <img src="figures/age_diabetes_prevalence.png"
+                 alt="Bar chart of diabetes prevalence by age group" />
+            <figcaption>
+              Diabetes prevalence by age group. Risk increases sharply after ~45,
+              which motivated age-band specific analysis and model features.
+            </figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="figures/bmi_category_prevalence.png"
+                 alt="Bar chart of diabetes prevalence by BMI category" />
+            <figcaption>
+              Diabetes prevalence by BMI category. Higher BMI groups show
+              substantially higher risk, consistent with clinical literature.
+            </figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="figures/correlation_heatmap.png"
+                 alt="Correlation heatmap of continuous features and diabetes label" />
+            <figcaption>
+              Correlation heatmap for continuous features versus the diabetes
+              label, used to sanity-check relationships before modeling.
+            </figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="figures/feature_importance_rf.png"
+                 alt="Random forest feature importance bar chart" />
+            <figcaption>
+              Random forest feature importances. Age, BMI, and general health
+              indicators emerge as the strongest predictors of diabetes risk.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card footer-card">
+        <h2>Summary</h2>
+        <p>
+          This project combines <strong>data cleaning</strong>, <strong>visual
+          exploration</strong>, and <strong>interpretable modeling</strong> to
+          make chronic disease risk easier to understand. The same patterns and
+          layouts could be embedded into a product-grade dashboard to support
+          public health or clinical decision-making.
+        </p>
+        <p class="signature">
+          Built by <strong>Hanna Pan</strong> · Informatics &amp; ACMS (Data Science &amp; Statistics),
+          University of Washington.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
